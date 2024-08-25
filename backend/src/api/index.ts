@@ -8,3 +8,5 @@ export const api = express();
 api.get("/api", (req, res) => {
     res.statusCode = 200;
 });
+
+api.get;
