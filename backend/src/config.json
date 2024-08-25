@@ -1,0 +1,4 @@
+{
+    "apiPort": 3000,
+    "mongodbUri": "mongodb://localhost:27017"
+}
