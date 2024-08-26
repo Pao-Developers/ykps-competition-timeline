@@ -3,6 +3,8 @@ import mongoose, { Schema } from "mongoose";
 const urlRegex =
     /^(?:(http|https|ftp):\/\/)?((|[\w-]+\.)+[a-z0-9]+)(?:(\/[^/?#]+)*)?(\?[^#]+)?(#.+)?$/i;
 
+const tags = ["Null"];
+
 const nodeSchema = new Schema({
     title: { type: String, required: true, trim: true },
     description: { type: String, trim: true },
@@ -13,14 +15,10 @@ const nodeSchema = new Schema({
     isPrimapy: { type: Boolean, default: false },
 });
 
-// const categories = ["Null"];
-const tags = ["Null"];
-
 const eventSchema = new Schema({
     title: { type: String, required: true, trim: true },
     description: { type: String, trim: true },
     tags: { type: [String], enum: tags },
-    // category: { type: String, enum: categories },
     primaryChildNodes: { type: [Schema.Types.ObjectId], ref: "nodes" },
     trivialChildNodes: { type: [Schema.Types.ObjectId], ref: "nodes" },
 });
