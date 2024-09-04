@@ -7,11 +7,11 @@ import { DBHandler } from "../db";
 export const api = express();
 
 api.get("/", (req, res) => {
-    res.status(200).send("Open competition database API.");
+    res.status(200).type("text/plain").send("Open competition database API.");
 });
 
 api.get("/api", (req, res) => {
-    res.status(200).send("Open competition database API.");
+    res.status(200).type("text/plain").send("Open competition database API.");
 });
 
 api.get("/api/node", (req, res) => {
