@@ -1,33 +1,55 @@
+<script setup lang="ts">
+import TimelineView from "./views/TimelineView.vue"
+</script>
+
 <template>
-    <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/product">About us</router-link> |
-        <router-link to="/dev">Dev</router-link>
-        <!-- Remember to delete dev -->
-    </nav>
-    <!-- Language and dark mode should be here -->
-    <router-view />
+    <div class="app-container">
+        <div class="side-panel-container">
+            <nav>
+                <router-link to="/">Timeline</router-link> |
+                <router-link to="/product">About</router-link>
+            </nav>
+        </div>
+        <div class="main-panel-container">
+            <TimelineView />
+        </div>
+    </div>
 </template>
 
-<style>
+<style lang="scss">
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Space Grotesk, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    color: #1e1e1e;
 }
 
-nav {
-    padding: 30px;
+.app-container {
+    display: flex;
+    padding: 40px;
 }
 
-nav a {
-    font-weight: bold;
-    color: #2c3e50;
+.base-panel-container {
+    padding: 20px;
+    background: #f1f1f1;
+    border-radius: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-nav a.router-link-exact-active {
-    color: #42b983;
+.main-panel-container {
+    @extend .base-panel-container;
+    flex-grow: 1;
+    margin-left: 228px; /* 确保 main-panel-container 在 side-panel-container 右侧 */
+}
+
+.side-panel-container {
+    @extend .base-panel-container;
+    position: fixed; /* 使用 fixed 以确保它相对于视口定位 */
+    top: 40px;
+    bottom: 40px;
+    left: 40px;
+    width: 168px;
+    max-height: calc(100% - 80px);
+    overflow: auto;
 }
 </style>

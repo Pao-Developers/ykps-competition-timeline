@@ -23,5 +23,7 @@ const eventSchema = new Schema({
     trivialChildNodes: { type: [Schema.Types.ObjectId], ref: "nodes" },
 });
 
-export const Node = mongoose.model("nodes", nodeSchema);
-export const Event = mongoose.model("events", eventSchema);
+const Node = mongoose.model("nodes", nodeSchema);
+const Event = mongoose.model("events", eventSchema);
+
+export { Node, Event };

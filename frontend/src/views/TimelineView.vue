@@ -1,7 +1,7 @@
 import TimelineNode from '../components/TimelineNode.vue'; import TimelineView
 from '@/views/TimelineView.vue';
 <template>
-    <div class="timeline">
+    <div class="panel-container">
         <TimelineNode
             v-for="node in nodes"
             :key="node.id"
@@ -14,7 +14,7 @@ from '@/views/TimelineView.vue';
 <script lang="ts" setup>
 import TimelineNode from "@/components/TimelineNode.vue"
 import { ref } from "vue"
-import axios from "axios"
+// import axios from "axios"
 
 const nodes = ref([
     { id: 1, title: "First Node", description: "This is the first node" },
@@ -22,9 +22,9 @@ const nodes = ref([
     { id: 3, title: "Third Node", description: "This is the third node" },
 ])
 
-axios.get("http://localhost:3000/timeline").then((response) => {
-    nodes.value = response.data
-})
+// axios.get("http://localhost:3000/timeline").then((response) => {
+//     nodes.value = response.data
+// })
 </script>
 
 <style></style>
