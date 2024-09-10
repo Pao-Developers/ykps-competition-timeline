@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 import AboutView from "@/views/AboutView.vue"
-import App from "@/App.vue"
+import TimelineView from "@/views/TimelineView.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "app",
-        component: App,
+        component: TimelineView,
     },
     {
         path: "/about",
@@ -16,6 +16,11 @@ const routes: Array<RouteRecordRaw> = [
         // which is lazy-loaded when the route is visited.
         component: AboutView,
     },
+    // {
+    //     path: "/search"
+    //     name: "search",
+    //     component: SearchView,
+    // }
 ]
 
 const router = createRouter({

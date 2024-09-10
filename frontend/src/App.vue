@@ -1,55 +1,87 @@
-<script setup lang="ts">
-import TimelineView from "./views/TimelineView.vue"
-</script>
-
 <template>
-    <div class="app-container">
-        <div class="side-panel-container">
-            <nav>
-                <router-link to="/">Timeline</router-link> |
-                <router-link to="/product">About</router-link>
-            </nav>
-        </div>
-        <div class="main-panel-container">
-            <TimelineView />
-        </div>
-    </div>
+    <n-layout has-sider style="height: 100%">
+        <n-layout-sider
+            bordered
+            :width="256"
+            show-trigger
+            :collapsed="sideBarCollapsed"
+            collapse-mode="width"
+            :collapsed-width="64"
+            @collapse="sideBarCollapsed = true"
+            @expand="sideBarCollapsed = false"
+        >
+            <n-menu
+                :options="menuOptions"
+                v-model:value="activeKey"
+                :icon-size="16"
+                :collapsed="sideBarCollapsed"
+                :collapsed-width="64"
+                :collapsed-icon-size="24"
+            />
+        </n-layout-sider>
+        <n-layout>
+            <n-layout-header> Header Placeholder </n-layout-header>
+            <n-layout-content>
+                <router-view />
+            </n-layout-content>
+        </n-layout>
+    </n-layout>
 </template>
 
+<script setup lang="ts">
+import { HomeTwo, Info } from "@icon-park/vue-next"
+import {
+    NLayout,
+    NLayoutSider,
+    NLayoutHeader,
+    NLayoutContent,
+    NMenu,
+    MenuOption,
+} from "naive-ui"
+import { h, ref } from "vue"
+import { RouterLink, useRoute } from "vue-router"
+
+const activeKey = ref(useRoute().name?.toString())
+const sideBarCollapsed = ref(true)
+
+const menuOptions: MenuOption[] = [
+    {
+        label: () =>
+            h(
+                RouterLink,
+                { to: { name: "app", params: { lang: "zh-CN" } } },
+                { default: () => "Timeline" }
+            ),
+        key: "app",
+        icon: () => h(HomeTwo),
+    },
+    {
+        label: () =>
+            h(
+                RouterLink,
+                { to: { name: "about", params: { lang: "zh-CN" } } },
+                { default: () => "Product" }
+            ),
+        key: "about",
+        icon: () => h(Info),
+    },
+]
+</script>
+
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
 #app {
-    font-family: Space Grotesk, sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #1e1e1e;
+    color: #1f1f1f;
 }
 
-.app-container {
-    display: flex;
-    padding: 40px;
-}
-
-.base-panel-container {
-    padding: 20px;
-    background: #f1f1f1;
-    border-radius: 30px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.main-panel-container {
-    @extend .base-panel-container;
-    flex-grow: 1;
-    margin-left: 228px; /* 确保 main-panel-container 在 side-panel-container 右侧 */
-}
-
-.side-panel-container {
-    @extend .base-panel-container;
-    position: fixed; /* 使用 fixed 以确保它相对于视口定位 */
-    top: 40px;
-    bottom: 40px;
-    left: 40px;
-    width: 168px;
-    max-height: calc(100% - 80px);
-    overflow: auto;
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
 }
 </style>
