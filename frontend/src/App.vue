@@ -12,7 +12,7 @@
         >
             <n-menu
                 :options="menuOptions"
-                v-model:value="activeKey"
+                :value="activeKey"
                 :icon-size="16"
                 :collapsed="sideBarCollapsed"
                 :collapsed-width="64"
@@ -38,10 +38,19 @@ import {
     NMenu,
     MenuOption,
 } from "naive-ui"
-import { h, ref } from "vue"
+import { h, watch, ref } from "vue"
 import { RouterLink, useRoute } from "vue-router"
 
-const activeKey = ref(useRoute().name?.toString())
+const route = useRoute()
+const activeKey = ref<string | null>(null)
+
+watch(
+    route,
+    (newRoute) => {
+        activeKey.value = newRoute.name as string
+    },
+    { immediate: true }
+)
 const sideBarCollapsed = ref(true)
 
 const menuOptions: MenuOption[] = [
@@ -49,7 +58,7 @@ const menuOptions: MenuOption[] = [
         label: () =>
             h(
                 RouterLink,
-                { to: { name: "app", params: { lang: "zh-CN" } } },
+                { to: { name: "app" } },
                 { default: () => "Timeline" }
             ),
         key: "app",
@@ -59,7 +68,7 @@ const menuOptions: MenuOption[] = [
         label: () =>
             h(
                 RouterLink,
-                { to: { name: "about", params: { lang: "zh-CN" } } },
+                { to: { name: "about" } },
                 { default: () => "Product" }
             ),
         key: "about",
