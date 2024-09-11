@@ -62,7 +62,16 @@ const menuOptions: MenuOption[] = [
                 { default: () => "Timeline" }
             ),
         key: "app",
-        icon: () => h(HomeTwo),
+        icon: () =>
+            h(HomeTwo, {
+                style: {
+                    height: "24px",
+                    width: "24px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                },
+            }),
     },
     {
         label: () =>
@@ -72,7 +81,16 @@ const menuOptions: MenuOption[] = [
                 { default: () => "Product" }
             ),
         key: "about",
-        icon: () => h(Info),
+        icon: () =>
+            h(Info, {
+                style: {
+                    height: "24px",
+                    width: "24px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                },
+            }),
     },
 ]
 </script>
