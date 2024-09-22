@@ -1,9 +1,8 @@
 <template>
-    <n-layout has-sider style="height: 100%">
+    <n-layout style="max-height: 100%" has-sider position="absolute">
         <n-layout-sider
             bordered
             :width="256"
-            show-trigger
             :collapsed="sideBarCollapsed"
             collapse-mode="width"
             :collapsed-width="64"
@@ -18,25 +17,32 @@
                 :collapsed-width="64"
                 :collapsed-icon-size="24"
             />
+            <n-button circle class="collapse-button" @click="collapseSideBar">
+                <left v-if="!sideBarCollapsed" />
+                <right v-if="sideBarCollapsed" />
+            </n-button>
         </n-layout-sider>
-        <n-layout>
-            <n-layout-header> Header Placeholder </n-layout-header>
-            <n-layout-content>
-                <router-view />
-            </n-layout-content>
-        </n-layout>
+        <n-layout-content
+            content-class="router-view"
+            content-style="padding: 10px"
+            :native-scrollbar="false"
+            bordered
+            embedded
+        >
+            <router-view class="router-view" />
+        </n-layout-content>
     </n-layout>
 </template>
 
 <script setup lang="ts">
-import { HomeTwo, Info } from "@icon-park/vue-next"
+import { HomeTwo, Info, Left, Right } from "@icon-park/vue-next"
 import {
     NLayout,
     NLayoutSider,
-    NLayoutHeader,
     NLayoutContent,
     NMenu,
     MenuOption,
+    NButton,
 } from "naive-ui"
 import { h, watch, ref } from "vue"
 import { RouterLink, useRoute } from "vue-router"
@@ -51,7 +57,12 @@ watch(
     },
     { immediate: true }
 )
+
 const sideBarCollapsed = ref(true)
+
+const collapseSideBar = () => {
+    sideBarCollapsed.value = !sideBarCollapsed.value
+}
 
 const menuOptions: MenuOption[] = [
     {
@@ -96,6 +107,9 @@ const menuOptions: MenuOption[] = [
 </script>
 
 <style lang="scss">
+// Font Space Grotesk
+// This seems to be working in Mainland China
+// Maybe consider adding a fallback url if needed
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 #app {
@@ -105,10 +119,10 @@ const menuOptions: MenuOption[] = [
     color: #1f1f1f;
 }
 
-html,
-body,
-#app {
-    height: 100%;
-    margin: 0;
+.collapse-button {
+    position: fixed;
+    bottom: 20px;
+    left: 32px;
+    transform: translateX(-50%);
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
-    <h1>
-        {{ title }}
-    </h1>
-    <p>
+    <n-card :title="title" hoverable class="timeline-node">
         {{ description }}
-    </p>
+    </n-card>
 </template>
 
 <script lang="ts" setup>
+import { NCard } from "naive-ui"
 import { defineProps } from "vue"
 
 defineProps({
@@ -15,3 +13,10 @@ defineProps({
     description: String,
 })
 </script>
+
+<style>
+.timeline-node {
+    width: 100%;
+    max-width: 100%;
+}
+</style>

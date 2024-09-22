@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "title": "Project Kickoff",
+        "description": "The project officially starts, and team members begin to divide tasks."
+    },
+    {
+        "id": 2,
+        "title": "Requirement Analysis",
+        "description": "Conduct requirement analysis with the client to determine the main functions and goals of the project."
+    },
+    {
+        "id": 3,
+        "title": "Design Phase",
+        "description": "UI/UX designers start designing the interface and user experience of the project."
+    },
+    {
+        "id": 4,
+        "title": "Development Phase",
+        "description": "The development team starts coding and implementing the core functions of the project."
+    },
+    {
+        "id": 5,
+        "title": "Testing Phase",
+        "description": "The testing team conducts functional and performance testing to ensure the quality of the project."
+    },
+    {
+        "id": 6,
+        "title": "Launch Preparation",
+        "description": "The project enters the launch preparation phase, conducting final checks and deployment."
+    },
+    {
+        "id": 7,
+        "title": "Project Launch",
+        "description": "The project officially launches, and users can start using it."
+    },
+    {
+        "id": 8,
+        "title": "Post-Launch Support",
+        "description": "The team provides support and addresses any issues that arise after the launch."
+    },
+    {
+        "id": 9,
+        "title": "User Feedback",
+        "description": "Collect feedback from users to identify areas for improvement and new features."
+    },
+    {
+        "id": 10,
+        "title": "Iteration Planning",
+        "description": "Plan the next iteration based on user feedback and project goals."
+    },
+    {
+        "id": 11,
+        "title": "Feature Development",
+        "description": "Develop new features and enhancements based on the iteration plan."
+    },
+    {
+        "id": 12,
+        "title": "Continuous Improvement",
+        "description": "Continuously improve the project through regular updates and optimizations."
+    },
+    {
+        "id": 13,
+        "title": "Performance Optimization",
+        "description": "Optimize the performance of the application to ensure a smooth user experience."
+    },
+    {
+        "id": 14,
+        "title": "Security Audit",
+        "description": "Conduct a thorough security audit to identify and fix potential vulnerabilities."
+    },
+    {
+        "id": 15,
+        "title": "Scalability Planning",
+        "description": "Plan for scalability to handle increased user load and data volume."
+    },
+    {
+        "id": 16,
+        "title": "Integration Testing",
+        "description": "Perform integration testing to ensure all components work seamlessly together."
+    },
+    {
+        "id": 17,
+        "title": "Documentation Update",
+        "description": "Update the project documentation to reflect the latest changes and features."
+    },
+    {
+        "id": 18,
+        "title": "Training Session",
+        "description": "Conduct training sessions for the team to ensure everyone is up-to-date with the latest practices."
+    },
+    {
+        "id": 19,
+        "title": "Marketing Campaign",
+        "description": "Launch a marketing campaign to promote the project and attract new users."
+    },
+    {
+        "id": 20,
+        "title": "User Survey",
+        "description": "Conduct a user survey to gather insights and feedback for future improvements."
+    }
+]
