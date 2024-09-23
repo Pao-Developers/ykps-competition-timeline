@@ -1,37 +1,51 @@
 <template>
-    <n-layout style="max-height: 100%" has-sider position="absolute">
-        <n-layout-sider
-            bordered
-            :width="256"
-            :collapsed="sideBarCollapsed"
-            collapse-mode="width"
-            :collapsed-width="64"
-            @collapse="sideBarCollapsed = true"
-            @expand="sideBarCollapsed = false"
-        >
-            <n-menu
-                :options="menuOptions"
-                :value="activeKey"
-                :icon-size="16"
+    <n-config-provider>
+        <n-layout style="max-height: 100%" has-sider position="absolute">
+            <n-layout-sider
+                bordered
+                :width="256"
                 :collapsed="sideBarCollapsed"
+                collapse-mode="width"
                 :collapsed-width="64"
-                :collapsed-icon-size="24"
-            />
-            <n-button circle class="collapse-button" @click="collapseSideBar">
-                <left v-if="!sideBarCollapsed" />
-                <right v-if="sideBarCollapsed" />
-            </n-button>
-        </n-layout-sider>
-        <n-layout-content
-            content-class="router-view"
-            content-style="padding: 10px"
-            :native-scrollbar="false"
-            bordered
-            embedded
-        >
-            <router-view class="router-view" />
-        </n-layout-content>
-    </n-layout>
+                @collapse="sideBarCollapsed = true"
+                @expand="sideBarCollapsed = false"
+            >
+                <n-menu
+                    :options="menuOptions"
+                    :value="activeKey"
+                    :icon-size="16"
+                    :collapsed="sideBarCollapsed"
+                    :collapsed-width="64"
+                    :collapsed-icon-size="24"
+                />
+                <n-button
+                    circle
+                    class="collapse-button"
+                    @click="collapseSideBar"
+                >
+                    <left v-if="!sideBarCollapsed" />
+                    <right v-if="sideBarCollapsed" />
+                </n-button>
+            </n-layout-sider>
+            <n-layout>
+                <n-layout-header bordered>
+                    <div style="padding: 10px">
+                        <h2 style="line-height: 0">{{ date }}</h2>
+                        {{ time }}
+                    </div>
+                </n-layout-header>
+                <n-layout-content
+                    content-class="router-view"
+                    content-style="padding: 10px"
+                    :native-scrollbar="false"
+                    bordered
+                    embedded
+                >
+                    <router-view class="router-view" />
+                </n-layout-content>
+            </n-layout>
+        </n-layout>
+    </n-config-provider>
 </template>
 
 <script setup lang="ts">
@@ -43,8 +57,10 @@ import {
     NMenu,
     MenuOption,
     NButton,
+    NLayoutHeader,
+    NConfigProvider,
 } from "naive-ui"
-import { h, watch, ref } from "vue"
+import { h, watch, ref, onMounted, onUnmounted } from "vue"
 import { RouterLink, useRoute } from "vue-router"
 
 const route = useRoute()
@@ -104,6 +120,24 @@ const menuOptions: MenuOption[] = [
             }),
     },
 ]
+
+const date = ref(new Date().toLocaleString().split(" ")[0])
+const time = ref(new Date().toLocaleString().split(" ")[1])
+
+const updateTime = () => {
+    date.value = new Date().toLocaleString().split(" ")[0]
+    time.value = new Date().toLocaleString().split(" ")[1]
+}
+
+let intervalId: number
+
+onMounted(() => {
+    intervalId = setInterval(updateTime, 1000)
+})
+
+onUnmounted(() => {
+    clearInterval(intervalId)
+})
 </script>
 
 <style lang="scss">

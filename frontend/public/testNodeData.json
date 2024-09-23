@@ -2,101 +2,121 @@
     {
         "id": 1,
         "title": "Project Kickoff",
-        "description": "The project officially starts, and team members begin to divide tasks."
+        "description": "The project officially starts, and team members begin to divide tasks.",
+        "date": "2023-01-01T00:00:00Z"
     },
     {
         "id": 2,
         "title": "Requirement Analysis",
-        "description": "Conduct requirement analysis with the client to determine the main functions and goals of the project."
+        "description": "Conduct requirement analysis with the client to determine the main functions and goals of the project.",
+        "date": "2023-01-05T00:00:00Z"
     },
     {
         "id": 3,
         "title": "Design Phase",
-        "description": "UI/UX designers start designing the interface and user experience of the project."
+        "description": "UI/UX designers start designing the interface and user experience of the project.",
+        "date": "2023-01-10T00:00:00Z"
     },
     {
         "id": 4,
         "title": "Development Phase",
-        "description": "The development team starts coding and implementing the core functions of the project."
+        "description": "The development team starts coding and implementing the core functions of the project.",
+        "date": "2023-02-01T00:00:00Z"
     },
     {
         "id": 5,
         "title": "Testing Phase",
-        "description": "The testing team conducts functional and performance testing to ensure the quality of the project."
+        "description": "The testing team conducts functional and performance testing to ensure the quality of the project.",
+        "date": "2023-03-01T00:00:00Z"
     },
     {
         "id": 6,
         "title": "Launch Preparation",
-        "description": "The project enters the launch preparation phase, conducting final checks and deployment."
+        "description": "The project enters the launch preparation phase, conducting final checks and deployment.",
+        "date": "2023-03-15T00:00:00Z"
     },
     {
         "id": 7,
         "title": "Project Launch",
-        "description": "The project officially launches, and users can start using it."
+        "description": "The project officially launches, and users can start using it.",
+        "date": "2023-04-01T00:00:00Z"
     },
     {
         "id": 8,
         "title": "Post-Launch Support",
-        "description": "The team provides support and addresses any issues that arise after the launch."
+        "description": "The team provides support and addresses any issues that arise after the launch.",
+        "date": "2023-04-10T00:00:00Z"
     },
     {
         "id": 9,
         "title": "User Feedback",
-        "description": "Collect feedback from users to identify areas for improvement and new features."
+        "description": "Collect feedback from users to identify areas for improvement and new features.",
+        "date": "2023-04-20T00:00:00Z"
     },
     {
         "id": 10,
         "title": "Iteration Planning",
-        "description": "Plan the next iteration based on user feedback and project goals."
+        "description": "Plan the next iteration based on user feedback and project goals.",
+        "date": "2023-05-01T00:00:00Z"
     },
     {
         "id": 11,
         "title": "Feature Development",
-        "description": "Develop new features and enhancements based on the iteration plan."
+        "description": "Develop new features and enhancements based on the iteration plan.",
+        "date": "2023-05-15T00:00:00Z"
     },
     {
         "id": 12,
         "title": "Continuous Improvement",
-        "description": "Continuously improve the project through regular updates and optimizations."
+        "description": "Continuously improve the project through regular updates and optimizations.",
+        "date": "2023-06-01T00:00:00Z"
     },
     {
         "id": 13,
         "title": "Performance Optimization",
-        "description": "Optimize the performance of the application to ensure a smooth user experience."
+        "description": "Optimize the performance of the application to ensure a smooth user experience.",
+        "date": "2023-06-15T00:00:00Z"
     },
     {
         "id": 14,
         "title": "Security Audit",
-        "description": "Conduct a thorough security audit to identify and fix potential vulnerabilities."
+        "description": "Conduct a thorough security audit to identify and fix potential vulnerabilities.",
+        "date": "2023-07-01T00:00:00Z"
     },
     {
         "id": 15,
         "title": "Scalability Planning",
-        "description": "Plan for scalability to handle increased user load and data volume."
+        "description": "Plan for scalability to handle increased user load and data volume.",
+        "date": "2023-07-15T00:00:00Z"
     },
     {
         "id": 16,
         "title": "Integration Testing",
-        "description": "Perform integration testing to ensure all components work seamlessly together."
+        "description": "Perform integration testing to ensure all components work seamlessly together.",
+        "date": "2023-08-01T00:00:00Z"
     },
     {
         "id": 17,
         "title": "Documentation Update",
-        "description": "Update the project documentation to reflect the latest changes and features."
+        "description": "Update the project documentation to reflect the latest changes and features.",
+        "date": "2023-08-15T00:00:00Z"
     },
     {
         "id": 18,
         "title": "Training Session",
-        "description": "Conduct training sessions for the team to ensure everyone is up-to-date with the latest practices."
+        "description": "Conduct training sessions for the team to ensure everyone is up-to-date with the latest practices.",
+        "date": "2023-09-01T00:00:00Z"
     },
     {
         "id": 19,
         "title": "Marketing Campaign",
-        "description": "Launch a marketing campaign to promote the project and attract new users."
+        "description": "Launch a marketing campaign to promote the project and attract new users.",
+        "date": "2023-09-15T00:00:00Z"
     },
     {
         "id": 20,
         "title": "User Survey",
-        "description": "Conduct a user survey to gather insights and feedback for future improvements."
+        "description": "Conduct a user survey to gather insights and feedback for future improvements.",
+        "date": "2023-10-01T00:00:00Z"
     }
 ]
