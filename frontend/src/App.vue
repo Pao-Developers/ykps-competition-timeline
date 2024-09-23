@@ -36,10 +36,9 @@
                 </n-layout-header>
                 <n-layout-content
                     content-class="router-view"
-                    content-style="padding: 10px"
+                    content-style="padding: 20px"
                     :native-scrollbar="false"
                     bordered
-                    embedded
                 >
                     <router-view class="router-view" />
                 </n-layout-content>
@@ -49,19 +48,19 @@
 </template>
 
 <script setup lang="ts">
-import { HomeTwo, Info, Left, Right } from "@icon-park/vue-next"
+import { Left, Right } from "@icon-park/vue-next"
 import {
     NLayout,
     NLayoutSider,
     NLayoutContent,
     NMenu,
-    MenuOption,
     NButton,
     NLayoutHeader,
     NConfigProvider,
 } from "naive-ui"
-import { h, watch, ref, onMounted, onUnmounted } from "vue"
-import { RouterLink, useRoute } from "vue-router"
+import { watch, ref, onMounted, onUnmounted } from "vue"
+import { useRoute } from "vue-router"
+import { menuOptions } from "./views/menuOptions"
 
 const route = useRoute()
 const activeKey = ref<string | null>(null)
@@ -79,47 +78,6 @@ const sideBarCollapsed = ref(true)
 const collapseSideBar = () => {
     sideBarCollapsed.value = !sideBarCollapsed.value
 }
-
-const menuOptions: MenuOption[] = [
-    {
-        label: () =>
-            h(
-                RouterLink,
-                { to: { name: "app" } },
-                { default: () => "Timeline" }
-            ),
-        key: "app",
-        icon: () =>
-            h(HomeTwo, {
-                style: {
-                    height: "24px",
-                    width: "24px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                },
-            }),
-    },
-    {
-        label: () =>
-            h(
-                RouterLink,
-                { to: { name: "about" } },
-                { default: () => "Product" }
-            ),
-        key: "about",
-        icon: () =>
-            h(Info, {
-                style: {
-                    height: "24px",
-                    width: "24px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                },
-            }),
-    },
-]
 
 const date = ref(new Date().toLocaleString().split(" ")[0])
 const time = ref(new Date().toLocaleString().split(" ")[1])
