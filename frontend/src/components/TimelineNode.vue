@@ -49,18 +49,13 @@ defineProps({
     align-items: stretch;
 }
 
-.calendar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
 .side-date-display {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    width: 30px;
+    margin: 10px;
     color: #b4b4b4;
 }
 </style>

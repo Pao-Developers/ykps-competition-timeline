@@ -52,6 +52,11 @@ onMounted(async () => {
 }
 
 /* The line */
+:root {
+    --line-top: 0;
+    --line-height: 100%;
+}
+
 .timeline-container::before {
     content: "";
     position: absolute;
