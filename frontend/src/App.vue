@@ -27,17 +27,16 @@
                     <right v-if="sideBarCollapsed" />
                 </n-button>
             </n-layout-sider>
-            <n-layout>
-                <n-layout-header bordered>
-                    <div style="padding: 10px">
-                        <h2 style="line-height: 0">{{ date }}</h2>
-                        {{ time }}
-                    </div>
-                </n-layout-header>
+            <n-layout :native-scrollbar="false" ref="headerLayoutRef">
+                <!--                <n-layout-header bordered position="absolute">-->
+                <!--                    <div style="padding: 20px">-->
+                <!--                        <h2 style="line-height: 0">{{ date }}</h2>-->
+                <!--                        {{ time }}-->
+                <!--                    </div>-->
+                <!--                </n-layout-header>-->
                 <n-layout-content
                     content-class="router-view"
                     content-style="padding: 20px"
-                    :native-scrollbar="false"
                     bordered
                 >
                     <router-view class="router-view" />
@@ -63,7 +62,7 @@ import { useRoute } from "vue-router"
 import { menuOptions } from "./views/menuOptions"
 
 const route = useRoute()
-const activeKey = ref<string | null>(null)
+const activeKey = ref("")
 
 watch(
     route,
@@ -96,6 +95,9 @@ onMounted(() => {
 onUnmounted(() => {
     clearInterval(intervalId)
 })
+
+const headerLayoutRef = ref<HTMLElement | null>(null)
+const headerPosition = ref<"absolute" | "static">("static")
 </script>
 
 <style lang="scss">
