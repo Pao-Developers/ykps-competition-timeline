@@ -1,9 +1,13 @@
 # TODO
 
-Due Tuesday, 2024-08-27
+## Phase 1
 
 - [ ] User contribution
-- [ ] Database
-  - [ ] Design data structure
-- [ ] Frontend
-  - [ ] Vue timeline
+- [ ] Login through ADFS
+- [ ] Detail view UI
+- [ ] File upload through Sharepoint url
+
+## Phase 2
+
+- [ ] Sub-posts
+- [ ] Adcvanced appoval system
