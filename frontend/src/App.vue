@@ -27,16 +27,27 @@
                     <right v-if="sideBarCollapsed" />
                 </n-button>
             </n-layout-sider>
-            <n-layout :native-scrollbar="false" ref="headerLayoutRef">
-                <!--                <n-layout-header bordered position="absolute">-->
-                <!--                    <div style="padding: 20px">-->
-                <!--                        <h2 style="line-height: 0">{{ date }}</h2>-->
-                <!--                        {{ time }}-->
-                <!--                    </div>-->
-                <!--                </n-layout-header>-->
+            <n-layout
+                :native-scrollbar="false"
+                ref="headerLayoutRef"
+                content-class="router-view"
+                :on-scroll="headerScrollHandler"
+            >
+                <n-layout-header
+                    bordered
+                    :position="headerPosition"
+                    style="z-index: 10"
+                    ref="headerRef"
+                >
+                    <div style="padding: 20px">
+                        <h2 style="line-height: 0">{{ date }}</h2>
+                        {{ time }}
+                    </div>
+                </n-layout-header>
                 <n-layout-content
                     content-class="router-view"
-                    content-style="padding: 20px"
+                    content-style="padding: 20px; height: 100%; width: 100%"
+                    style="height: 100%"
                     bordered
                 >
                     <router-view class="router-view" />
@@ -98,6 +109,20 @@ onUnmounted(() => {
 
 const headerLayoutRef = ref<HTMLElement | null>(null)
 const headerPosition = ref<"absolute" | "static">("static")
+const headerRef = ref<HTMLElement | null>(null)
+
+const headerScrollHandler = () => {
+    console.log(headerLayoutRef.value.scrollbarInstRef.containerScrollTop)
+    console.log(headerRef.value)
+    if (
+        headerLayoutRef.value?.scrollbarInstRef.containerScrollTop &&
+        headerLayoutRef.value.scrollbarInstRef.containerScrollTop > 50
+    ) {
+        headerPosition.value = "absolute"
+    } else {
+        headerPosition.value = "static"
+    }
+}
 </script>
 
 <style lang="scss">

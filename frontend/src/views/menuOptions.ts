@@ -48,7 +48,7 @@ export const menuOptions: MenuOption[] = [
             h(
                 RouterLink,
                 { to: { name: "about" } },
-                { default: () => "Product" }
+                { default: () => "About" }
             ),
         key: "about",
         icon: () =>
